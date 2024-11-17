@@ -1,5 +1,22 @@
-const MultiStepForm = ({ currentStep }) => {
-  console.log("here", currentStep, currentStep == 1);
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "./store/userSlice"; // Import the action
+
+const MultiStepForm = ({ currentStep, errors }) => {
+  //   console.log("here", currentStep, currentStep == 1);
+  const dispatch = useDispatch();
+
+  // Access the Redux state
+  const user = useSelector((state) => state.user);
+
+  // Handle form input change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Dispatch setUser to update the Redux store
+    dispatch(setUser({ ...user, [name]: value }));
+  };
+  console.log("here", user);
+
   return (
     <div>
       <form>
@@ -27,6 +44,8 @@ const MultiStepForm = ({ currentStep }) => {
                           type="text"
                           name="username"
                           id="username"
+                          value={user.username}
+                          onChange={handleChange}
                           //   autocomplete="username"
                           className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                           placeholder="janesmith"
@@ -47,10 +66,17 @@ const MultiStepForm = ({ currentStep }) => {
                           type="password"
                           name="password"
                           id="password"
+                          value={user.password}
+                          onChange={handleChange}
                           //   autocomplete="new-password"
                           className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                           placeholder="********"
                         />
+                        {errors.password && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors.password}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -65,12 +91,19 @@ const MultiStepForm = ({ currentStep }) => {
                       <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                         <input
                           type="password"
-                          name="confirm-password"
-                          id="confirm-password"
+                          name="confirmPassword"
+                          id="confirmPassword"
+                          value={user.confirmPassword}
+                          onChange={handleChange}
                           //   autocomplete="new-password"
                           className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
                           placeholder="********"
                         />
+                        {errors.confirmPassword && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors.confirmPassword}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -80,7 +113,7 @@ const MultiStepForm = ({ currentStep }) => {
             {currentStep == 1 && (
               <>
                 <h2 className="text-base/7 font-semibold text-gray-900">
-                  Account Details
+                  Personal Details
                 </h2>
                 <p className="mt-1 text-sm/6 text-gray-600">
                   Please provide your personal information so we can personalize
@@ -98,11 +131,18 @@ const MultiStepForm = ({ currentStep }) => {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="first-name"
-                        id="first-name"
+                        name="firstName"
+                        id="firstName"
+                        value={user.firstName}
+                        onChange={handleChange}
                         // autocomplete="given-name"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
+                      {errors.firstName && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.firstName}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -116,11 +156,18 @@ const MultiStepForm = ({ currentStep }) => {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="lastName"
+                        id="lastName"
+                        onChange={handleChange}
+                        value={user.lastName}
                         // autocomplete="family-name"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
+                      {errors.lastName && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.lastName}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -136,9 +183,17 @@ const MultiStepForm = ({ currentStep }) => {
                         id="email"
                         name="email"
                         type="email"
+                        value={user.email}
+                        onChange={handleChange}
                         // autocomplete="email"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
+
+                      {errors.email && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -152,8 +207,10 @@ const MultiStepForm = ({ currentStep }) => {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="street-address"
-                        id="street-address"
+                        name="address"
+                        id="address"
+                        value={user.address}
+                        onChange={handleChange}
                         // autocomplete="street-address"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
@@ -172,6 +229,8 @@ const MultiStepForm = ({ currentStep }) => {
                         type="text"
                         name="city"
                         id="city"
+                        value={user.city}
+                        onChange={handleChange}
                         // autocomplete="address-level2"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
@@ -188,8 +247,10 @@ const MultiStepForm = ({ currentStep }) => {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="region"
-                        id="region"
+                        name="state"
+                        value={user.state}
+                        onChange={handleChange}
+                        id="state"
                         // autocomplete="address-level1"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
@@ -206,11 +267,18 @@ const MultiStepForm = ({ currentStep }) => {
                     <div className="mt-2">
                       <input
                         type="text"
-                        name="postal-code"
-                        id="postal-code"
+                        name="zipcode"
+                        id="zipcode"
+                        value={user.zipcode}
+                        onChange={handleChange}
                         // autocomplete="postal-code"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                       />
+                      {errors.zipcode && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.zipcode}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -229,9 +297,11 @@ const MultiStepForm = ({ currentStep }) => {
                         <div className="relative flex gap-x-3">
                           <div className="flex h-6 items-center">
                             <input
-                              id="comments"
-                              name="comments"
+                              id="emailNotifications"
+                              name="emailNotifications"
                               type="checkbox"
+                              value={user.emailNotifications}
+                              onChange={handleChange}
                               className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             />
                           </div>
@@ -254,9 +324,11 @@ const MultiStepForm = ({ currentStep }) => {
                         <div className="relative flex gap-x-3">
                           <div className="flex h-6 items-center">
                             <input
-                              id="candidates"
-                              name="candidates"
+                              id="pushNotifications"
+                              name="pushNotifications"
                               type="checkbox"
+                              value={user.pushNotifications}
+                              onChange={handleChange}
                               className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             />
                           </div>
@@ -278,8 +350,10 @@ const MultiStepForm = ({ currentStep }) => {
                         <div className="relative flex gap-x-3">
                           <div className="flex h-6 items-center">
                             <input
-                              id="offers"
-                              name="offers"
+                              id="agreeToTerms"
+                              name="agreeToTerms"
+                              value={user.agreeToTerms}
+                              onChange={handleChange}
                               type="checkbox"
                               className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                             />
@@ -293,6 +367,11 @@ const MultiStepForm = ({ currentStep }) => {
                               [here].
                             </p>
                           </div>
+                          {errors.agreeToTerms && (
+                            <p className="text-red-500 text-sm">
+                              {errors.agreeToTerms}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </fieldset>
