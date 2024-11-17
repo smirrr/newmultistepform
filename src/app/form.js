@@ -21,20 +21,20 @@ const MultiStepForm = ({ currentStep, errors }) => {
     <div>
       <form>
         <div className="space-y-12">
-          <div className="border-b border-gray-900/10 pb-12">
+          <div className=" border-gray-900/10 pb-12 flex justify-center">
             {currentStep == 2 && (
-              <>
-                <h2 className="text-base/7 font-semibold text-gray-900">
+              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+                <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Account Details
                 </h2>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 font-sans text-[#00008B] italic font-light text-sm">
                   Choose a username and set a password for your account here{" "}
                 </p>
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-4">
                     <label
                       //   for="username"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Username
                     </label>
@@ -47,7 +47,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                           value={user.username}
                           onChange={handleChange}
                           //   autocomplete="username"
-                          className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
+                          className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                           placeholder="janesmith"
                         />
                       </div>
@@ -56,66 +56,62 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-4">
                     <label
                       //   for="password"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Password
                     </label>
-                    <div className="mt-2">
-                      <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                        <input
-                          type="password"
-                          name="password"
-                          id="password"
-                          value={user.password}
-                          onChange={handleChange}
-                          //   autocomplete="new-password"
-                          className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
-                          placeholder="********"
-                        />
-                        {errors.password && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors.password}
-                          </p>
-                        )}
-                      </div>
+                    <div className="mt-2 relative">
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        value={user.password}
+                        onChange={handleChange}
+                        //   autocomplete="new-password"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
+                        placeholder="********"
+                      />
+                      {errors.password && (
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
+                          {errors.password}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="sm:col-span-4">
                     <label
                       //   for="confirm-password"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Confirm Password
                     </label>
-                    <div className="mt-2">
-                      <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                        <input
-                          type="password"
-                          name="confirmPassword"
-                          id="confirmPassword"
-                          value={user.confirmPassword}
-                          onChange={handleChange}
-                          //   autocomplete="new-password"
-                          className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
-                          placeholder="********"
-                        />
-                        {errors.confirmPassword && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors.confirmPassword}
-                          </p>
-                        )}
-                      </div>
+                    <div className="mt-2 relative">
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        value={user.confirmPassword}
+                        onChange={handleChange}
+                        //   autocomplete="new-password"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
+                        placeholder="********"
+                      />
+                      {errors.confirmPassword && (
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
+                          {errors.confirmPassword}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
             {currentStep == 1 && (
-              <>
-                <h2 className="text-base/7 font-semibold text-gray-900">
+              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+                <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Personal Details
                 </h2>
-                <p className="mt-1 text-sm/6 text-gray-600">
+                <p className="mt-1 font-sans text-[#00008B] italic font-light text-sm">
                   Please provide your personal information so we can personalize
                   your experience and ensure we can reach you when necessary.
                   This information will be kept secure and confidential.
@@ -124,11 +120,11 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-3">
                     <label
                       //   for="first-name"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       First name
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-2 relative">
                       <input
                         type="text"
                         name="firstName"
@@ -136,10 +132,10 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         value={user.firstName}
                         onChange={handleChange}
                         // autocomplete="given-name"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                       {errors.firstName && (
-                        <p className="mt-1 text-sm text-red-600">
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
                           {errors.firstName}
                         </p>
                       )}
@@ -149,11 +145,11 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-3">
                     <label
                       //   for="last-name"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Last name
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-2 relative">
                       <input
                         type="text"
                         name="lastName"
@@ -161,10 +157,10 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         onChange={handleChange}
                         value={user.lastName}
                         // autocomplete="family-name"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                       {errors.lastName && (
-                        <p className="mt-1 text-sm text-red-600">
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
                           {errors.lastName}
                         </p>
                       )}
@@ -174,11 +170,11 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-4">
                     <label
                       //   for="email"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Email address
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-2 relative">
                       <input
                         id="email"
                         name="email"
@@ -186,11 +182,11 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         value={user.email}
                         onChange={handleChange}
                         // autocomplete="email"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
 
                       {errors.email && (
-                        <p className="mt-1 text-sm text-red-600">
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
                           {errors.email}
                         </p>
                       )}
@@ -200,7 +196,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="col-span-full">
                     <label
                       //   for="street-address"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       Street address
                     </label>
@@ -212,7 +208,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         value={user.address}
                         onChange={handleChange}
                         // autocomplete="street-address"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                     </div>
                   </div>
@@ -220,7 +216,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-2 sm:col-start-1">
                     <label
                       //   for="city"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       City
                     </label>
@@ -232,7 +228,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         value={user.city}
                         onChange={handleChange}
                         // autocomplete="address-level2"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                     </div>
                   </div>
@@ -240,7 +236,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-2">
                     <label
                       //   for="region"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       State / Province
                     </label>
@@ -252,7 +248,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         onChange={handleChange}
                         id="state"
                         // autocomplete="address-level1"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                     </div>
                   </div>
@@ -260,11 +256,11 @@ const MultiStepForm = ({ currentStep, errors }) => {
                   <div className="sm:col-span-2">
                     <label
                       //   for="postal-code"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
                     >
                       ZIP / Postal code
                     </label>
-                    <div className="mt-2">
+                    <div className="mt-2 relative">
                       <input
                         type="text"
                         name="zipcode"
@@ -272,112 +268,79 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         value={user.zipcode}
                         onChange={handleChange}
                         // autocomplete="postal-code"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                       />
                       {errors.zipcode && (
-                        <p className="mt-1 text-sm text-red-600">
+                        <p className="absolute text-xs text-red-600  left-0 mt-0 mb-1 font-sans font-light">
                           {errors.zipcode}
                         </p>
                       )}
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
             {currentStep == 3 && (
-              <>
-                <h2 className="text-base/7 font-semibold text-gray-900">
-                  Preferenxes
+              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+                <h2 className="font-sans text-[#00008B] font-bold text-lg">
+                  Preferences
                 </h2>
 
-                <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="mt-10 space-y-10">
-                    <fieldset>
-                      <div className="mt-6 space-y-6">
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="emailNotifications"
-                              name="emailNotifications"
-                              type="checkbox"
-                              value={user.emailNotifications}
-                              onChange={handleChange}
-                              className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm/6">
-                            <label
-                              //   for="comments"
-                              className="font-medium text-gray-900"
-                            >
-                              Email
-                            </label>
-                            <p className="text-gray-500">
-                              Stay up to date with the latest changes! Receive
-                              email notifications about important updates, such
-                              as policy changes, new offers, and upcoming
-                              promotions. We’ll keep you informed about
-                              everything that matters
-                            </p>
-                          </div>
-                        </div>
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="pushNotifications"
-                              name="pushNotifications"
-                              type="checkbox"
-                              value={user.pushNotifications}
-                              onChange={handleChange}
-                              className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm/6">
-                            <label
-                              //   for="candidates"
-                              className="font-medium text-gray-900"
-                            >
-                              Push Notifications
-                            </label>
-                            <p className="text-gray-500">
-                              Get instant updates on your phone! Enable push
-                              notifications to receive real-time alerts about
-                              policy changes, new offers, and more. Stay
-                              informed no matter where you are.{" "}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="agreeToTerms"
-                              name="agreeToTerms"
-                              value={user.agreeToTerms}
-                              onChange={handleChange}
-                              type="checkbox"
-                              className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm/6">
-                            <p className="text-gray-500">
-                              Please review and agree to our terms and
-                              conditions to continue using our services. By
-                              agreeing, you acknowledge and accept our policies.
-                              You can review them at any time by clicking
-                              [here].
-                            </p>
-                          </div>
-                          {errors.agreeToTerms && (
-                            <p className="text-red-500 text-sm">
-                              {errors.agreeToTerms}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
+                <div className="mt-10 flex flex-row gap-x-3 items-center">
+                    <input
+                      id="emailNotifications"
+                      name="emailNotifications"
+                      type="checkbox"
+                      value={user.emailNotifications}
+                      onChange={handleChange}
+                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    />
+                    
+                    <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
+                      Stay up to date with the latest changes! Receive email
+                      notifications about important updates, such as policy
+                      changes, new offers, and upcoming promotions. We’ll keep
+                      you informed about everything that matters
+                    </p>
                 </div>
-              </>
+                <div className="flex flex-row mt-10 gap-x-3 items-center ">
+                    <input
+                      id="pushNotifications"
+                      name="pushNotifications"
+                      type="checkbox"
+                      value={user.pushNotifications}
+                      onChange={handleChange}
+                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    />
+                    <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
+                      Get instant updates on your phone! Enable push
+                      notifications to receive real-time alerts about policy
+                      changes, new offers, and more. Stay informed no matter
+                      where you are.{" "}
+                    </p>
+                </div>
+                <div className="mt-10 flex flex-row gap-x-3 items-center">
+                    <input
+                      id="agreeToTerms"
+                      name="agreeToTerms"
+                      value={user.agreeToTerms}
+                      onChange={handleChange}
+                      type="checkbox"
+                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    />
+                    <p className="mt-1 font-sans text-gray-600 italic font-medium text-sm">
+                      Please review and agree to our terms and conditions to
+                      continue using our services. By agreeing, you acknowledge
+                      and accept our policies. You can review them at any time
+                      by clicking [here].
+                    </p>
+                  {errors.agreeToTerms && (
+                    <p className="text-red-500 text-sm">
+                      {errors.agreeToTerms}
+                    </p>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </div>

@@ -45,8 +45,20 @@ const AccountdetailsPage = () => {
   return (
     <div>
       <MultiStepForm currentStep={2} errors={errors} />
-      <button onClick={handleClick}>Previous</button>
-      <button onClick={goToNextPage}>Next</button>
+      <div className="fixed bottom-0 left-0 w-full h-28 flex flex-row justify-center items-center gap-5">
+        <button
+          className="bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center"
+          onClick={handleClick}
+        >
+          Previous
+        </button>
+        <button
+          className="bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center"
+          onClick={goToNextPage}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
