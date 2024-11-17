@@ -14,10 +14,11 @@ const ReviewPage = () => {
 
   const handleClick = () => {
     // Set errors if validation fails
-    dispatch(clearUser());
 
     // If there are no validation errors, move to next page
     router.push("/"); // Navigate to the next page
+    dispatch(clearUser());
+
   };
   const steps = [
     { id: 1, name: "Step 1", description: "Personal Details" },
@@ -35,7 +36,7 @@ const ReviewPage = () => {
           <p className="font-sans text-[#00008B] font-bold text-lg mt-10 mb-10">
             Your details have been Saved !{" "}
           </p>
-          <div className="block text-sm/6  font-sans text-[#00008B] flex flex-col items-center gap-2">
+          <div className="block text-sm/6  font-sans text-[#00008B] flex flex-col gap-2">
             <p>First Name: {user.firstName}</p>
             <p>Last Name: {user.lastName}</p>
             <p>Address: {user.address}</p>

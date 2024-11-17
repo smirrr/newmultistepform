@@ -338,8 +338,18 @@ const MultiStepForm = ({ currentStep, errors }) => {
                     Please review and agree to our terms and conditions to
                     continue using our services. By agreeing, you acknowledge
                     and accept our policies. You can review them at any time by
-                    clicking [here].
+                    clicking{" "}
+                    <a
+                      href="https://www.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      here
+                    </a>
+                    .
                   </p>
+
                   {errors.agreeToTerms && (
                     <p className="absolute text-xs text-red-600 mt-[4rem]  left-[1.8rem] mt-0 mb-1 font-sans font-light">
                       {errors.agreeToTerms}
