@@ -3,9 +3,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  firstName: 'nlha',
+  firstName: '',
   lastName: '',
-  email: 'bleahh',
+  email: '',
   address: '',
   city: '',
   state: '',
