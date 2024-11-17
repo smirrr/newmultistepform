@@ -18,12 +18,12 @@ const MultiStepForm = ({ currentStep, errors }) => {
   console.log("here", user);
 
   return (
-    <div>
+    <div className='border border-solid border-[#90EE90] mt-10 mr-10 p-10  rounded-lg w-[90%] h-[35rem]'>
       <form>
         <div className="space-y-12">
-          <div className=" border-gray-900/10 pb-12 flex justify-center">
+          <div className=" border-gray-900/10 pb-12 flex ">
             {currentStep == 2 && (
-              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+              <div className="">
                 <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Account Details
                 </h2>
@@ -107,7 +107,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
               </div>
             )}
             {currentStep == 1 && (
-              <div className="mt-10 mx-10 p-10 border border-solid border-[#90EE90] rounded-lg">
+              <div className="">
                 <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Personal Details
                 </h2>
@@ -281,61 +281,60 @@ const MultiStepForm = ({ currentStep, errors }) => {
               </div>
             )}
             {currentStep == 3 && (
-              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+              <div className="">
                 <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Preferences
                 </h2>
 
                 <div className="mt-10 flex flex-row gap-x-3 items-center">
-                    <input
-                      id="emailNotifications"
-                      name="emailNotifications"
-                      type="checkbox"
-                      value={user.emailNotifications}
-                      onChange={handleChange}
-                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                    
-                    <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
-                      Stay up to date with the latest changes! Receive email
-                      notifications about important updates, such as policy
-                      changes, new offers, and upcoming promotions. We’ll keep
-                      you informed about everything that matters
-                    </p>
+                  <input
+                    id="emailNotifications"
+                    name="emailNotifications"
+                    type="checkbox"
+                    value={user.emailNotifications}
+                    onChange={handleChange}
+                    className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+
+                  <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
+                    Stay up to date with the latest changes! Receive email
+                    notifications about important updates, such as policy
+                    changes, new offers, and upcoming promotions. We’ll keep you
+                    informed about everything that matters
+                  </p>
                 </div>
                 <div className="flex flex-row mt-10 gap-x-3 items-center ">
-                    <input
-                      id="pushNotifications"
-                      name="pushNotifications"
-                      type="checkbox"
-                      value={user.pushNotifications}
-                      onChange={handleChange}
-                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                    <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
-                      Get instant updates on your phone! Enable push
-                      notifications to receive real-time alerts about policy
-                      changes, new offers, and more. Stay informed no matter
-                      where you are.{" "}
-                    </p>
+                  <input
+                    id="pushNotifications"
+                    name="pushNotifications"
+                    type="checkbox"
+                    value={user.pushNotifications}
+                    onChange={handleChange}
+                    className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <p className="mt-1 font-sans text-gray-600 italic font-light text-sm">
+                    Get instant updates on your phone! Enable push notifications
+                    to receive real-time alerts about policy changes, new
+                    offers, and more. Stay informed no matter where you are.{" "}
+                  </p>
                 </div>
-                <div className="mt-10 flex flex-row gap-x-3 items-center">
-                    <input
-                      id="agreeToTerms"
-                      name="agreeToTerms"
-                      value={user.agreeToTerms}
-                      onChange={handleChange}
-                      type="checkbox"
-                      className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                    <p className="mt-1 font-sans text-gray-600 italic font-medium text-sm">
-                      Please review and agree to our terms and conditions to
-                      continue using our services. By agreeing, you acknowledge
-                      and accept our policies. You can review them at any time
-                      by clicking [here].
-                    </p>
+                <div className="mt-10 flex flex-row gap-x-3 items-center relative">
+                  <input
+                    id="agreeToTerms"
+                    name="agreeToTerms"
+                    value={user.agreeToTerms}
+                    onChange={handleChange}
+                    type="checkbox"
+                    className="size-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <p className="mt-1 font-sans text-gray-600 italic font-medium text-sm">
+                    Please review and agree to our terms and conditions to
+                    continue using our services. By agreeing, you acknowledge
+                    and accept our policies. You can review them at any time by
+                    clicking [here].
+                  </p>
                   {errors.agreeToTerms && (
-                    <p className="text-red-500 text-sm">
+                    <p className="absolute text-xs text-red-600 mt-[4rem]  left-[1.8rem] mt-0 mb-1 font-sans font-light">
                       {errors.agreeToTerms}
                     </p>
                   )}

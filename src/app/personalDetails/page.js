@@ -49,19 +49,27 @@ const PersonaldetailsPage = () => {
       router.push("/accountDetails"); // Navigate to the next page
     }
   };
-
+  const steps = [
+    { id: 1, name: "Step 1", description: "You can hover on the dot." },
+    { id: 2, name: "Step 2", description: "In progress step." },
+    { id: 3, name: "Step 3", description: "Step is completed." },
+    { id: 4, name: "Step 4", description: "Final step." },
+  ];
   return (
     <div className="flex fex-row gap-10">
-        <div className="w-[25%]">
-            <ProgressSteps/>
-        </div>
-        <div className="w-[75%]">
-      <MultiStepForm currentStep={1} errors={errors} />
-      <div className="fixed bottom-0 left-0  h-28 flex flex-row justify-center items-center">
-        <button className='bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center'  onClick={handleClick} >
-          Next
-        </button>
+      <div className="w-[25%]">
+        <ProgressSteps steps={steps} currentStep={1} />{" "}
       </div>
+      <div className="w-[75%]">
+        <MultiStepForm currentStep={1} errors={errors} />
+        <div className="fixed bottom-0 left-0 w-full h-28 flex flex-row justify-center items-center gap-5">
+          <button
+            className="bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center"
+            onClick={handleClick}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
