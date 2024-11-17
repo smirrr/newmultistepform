@@ -31,10 +31,10 @@ const AccountdetailsPage = () => {
     return errors;
   };
   const steps = [
-    { id: 1, name: "Step 1", description: "You can hover on the dot." },
-    { id: 2, name: "Step 2", description: "In progress step." },
-    { id: 3, name: "Step 3", description: "Step is completed." },
-    { id: 4, name: "Step 4", description: "Final step." },
+    { id: 1, name: "Step 1", description: "Personal Details" },
+    { id: 2, name: "Step 2", description: "Account Details" },
+    { id: 3, name: "Step 3", description: "Preferences" },
+    { id: 4, name: "Step 4", description: "Finish" },
   ];
   const handleClick = () => {
     router.push("/personalDetails"); // This will navigate to /about/page.tsx

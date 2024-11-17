@@ -18,7 +18,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
   console.log("here", user);
 
   return (
-    <div className='border border-solid border-[#90EE90] mt-10 mr-10 p-10  rounded-lg w-[90%] h-[35rem]'>
+    <div className="border border-solid border-[#90EE90] mt-10 mr-10 p-10  rounded-lg w-[90%] h-[35rem]">
       <form>
         <div className="space-y-12">
           <div className=" border-gray-900/10 pb-12 flex ">
@@ -76,6 +76,13 @@ const MultiStepForm = ({ currentStep, errors }) => {
                           {errors.password}
                         </p>
                       )}
+                      {/* Password Guidelines */}
+                      <ul className="mt-2 text-xs text-gray-500 list-disc pl-5">
+                        <li>Password should be at least 6 characters long.</li>
+                        <li>
+                          Password must contain both alphabets and numbers.
+                        </li>
+                      </ul>
                     </div>
                   </div>
                   <div className="sm:col-span-4">

@@ -4,38 +4,20 @@ import MultiStepForm from "../form";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ProgressSteps from "../components/progressSteps";
+import { clearUser } from "../store/userSlice"; // import clearUser action
 
-
-const PreferencesPage = () => {
+const ReviewPage = () => {
   const router = useRouter();
-
   const user = useSelector((state) => state.user); // Access Redux state
   console.log("here", user);
-  const [errors, setErrors] = useState({}); // Store errors locally
-  const validateForm = (user) => {
-    let errors = {};
+  const dispatch = useDispatch();
 
-    if (!user.agreeToTerms) {
-      errors.agreeToTerms = "Please agree to Terms and Conditions";
-    }
-
-    return errors;
-  };
   const handleClick = () => {
-    router.push("/accountDetails"); // This will navigate to /about/page.tsx
-  };
-
-  const submit = () => {
-    const validationErrors = validateForm(user);
-
     // Set errors if validation fails
-    setErrors(validationErrors);
+    dispatch(clearUser());
 
     // If there are no validation errors, move to next page
-    if (Object.keys(validationErrors).length === 0) {
-
-      router.push("/review");
-    } // This will navigate to /about/page.tsx
+    router.push("/"); // Navigate to the next page
   };
   const steps = [
     { id: 1, name: "Step 1", description: "Personal Details" },
@@ -46,22 +28,30 @@ const PreferencesPage = () => {
   return (
     <div className="flex fex-row gap-10">
       <div className="w-[25%]">
-        <ProgressSteps steps={steps} currentStep={3} />
+        <ProgressSteps steps={steps} currentStep={4} />{" "}
       </div>
       <div className="w-[75%]">
-        <MultiStepForm currentStep={3} errors={errors} />
+        <div className="border border-solid border-[#90EE90] mt-10 mr-10 p-10  rounded-lg w-[90%] h-[35rem]">
+          <p className="font-sans text-[#00008B] font-bold text-lg mt-10 mb-10">
+            Your details have been Saved !{" "}
+          </p>
+          <div className="block text-sm/6  font-sans text-[#00008B] flex flex-col items-center gap-2">
+            <p>First Name: {user.firstName}</p>
+            <p>Last Name: {user.lastName}</p>
+            <p>Address: {user.address}</p>
+            <p>City: {user.city}</p>
+            <p>State: {user.state}</p>
+            <p>ZipCode: {user.zipcode}</p>
+            <p>Username: {user.username}</p>
+            <p>Email: {user.email}</p>
+          </div>
+        </div>
         <div className="fixed bottom-0 left-0 w-full h-28 flex flex-row justify-center items-center gap-5">
           <button
             className="bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center"
             onClick={handleClick}
           >
-            Previous
-          </button>
-          <button
-            className="bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center"
-            onClick={submit}
-          >
-            Submit
+            Home
           </button>
         </div>
       </div>
@@ -69,4 +59,4 @@ const PreferencesPage = () => {
   );
 };
 
-export default PreferencesPage;
+export default ReviewPage;

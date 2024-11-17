@@ -16,7 +16,7 @@ const customDot = (dot, { status, index }) => (
 
 const ProgressSteps = ({ steps, currentStep }) => {
   return (
-    <div className="mt-10 mx-10 p-10 border border-solid border-[#90EE90] rounded-lg h-[90%] flex justify-center items-center">
+    <div className="mt-10 mx-10 p-10 border border-solid border-[#90EE90] rounded-lg h-[35rem] flex justify-center items-center">
       <Steps
       direction="vertical"
         current={currentStep - 1} // Ant Design steps are zero-based
