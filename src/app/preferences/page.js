@@ -3,9 +3,13 @@ import { useRouter } from "next/navigation";
 import MultiStepForm from "../form";
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
+import { clearUser } from '../store/userSlice'; // import clearUser action
+
 
 const PreferencesPage = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user); // Access Redux state
   console.log("here", user);
   const [errors, setErrors] = useState({}); // Store errors locally
@@ -30,7 +34,10 @@ const PreferencesPage = () => {
 
     // If there are no validation errors, move to next page
     if (Object.keys(validationErrors).length === 0) {
+      dispatch(clearUser());
+
       router.push("/");
+
     } // This will navigate to /about/page.tsx
   };
 
