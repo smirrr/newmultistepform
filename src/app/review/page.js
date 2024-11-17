@@ -4,21 +4,16 @@ import MultiStepForm from "../form";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ProgressSteps from "../components/progressSteps";
-import { clearUser } from "../store/userSlice"; // import clearUser action
+import { clearUser } from "../store/userSlice";
 
 const ReviewPage = () => {
   const router = useRouter();
-  const user = useSelector((state) => state.user); // Access Redux state
-  console.log("here", user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    // Set errors if validation fails
-
-    // If there are no validation errors, move to next page
-    router.push("/"); // Navigate to the next page
+    router.push("/");
     dispatch(clearUser());
-
   };
   const steps = [
     { id: 1, name: "Step 1", description: "Personal Details" },

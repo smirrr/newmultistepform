@@ -6,9 +6,8 @@ import { useState } from "react";
 import ProgressSteps from "../components/progressSteps";
 
 const AccountdetailsPage = () => {
-  const user = useSelector((state) => state.user); // Access Redux state
-  console.log("here", user);
-  const [errors, setErrors] = useState({}); // Store errors locally
+  const user = useSelector((state) => state.user);
+  const [errors, setErrors] = useState({});
   const router = useRouter();
   const validateForm = (user) => {
     let errors = {};
@@ -21,7 +20,6 @@ const AccountdetailsPage = () => {
       errors.password = "Password must contain both letters and numbers";
     }
 
-    // Validate confirm password
     if (!user.confirmPassword) {
       errors.confirmPassword = "Please confirm your password";
     } else if (user.confirmPassword !== user.password) {
@@ -37,17 +35,15 @@ const AccountdetailsPage = () => {
     { id: 4, name: "Step 4", description: "Finish" },
   ];
   const handleClick = () => {
-    router.push("/personalDetails"); // This will navigate to /about/page.tsx
+    router.push("/personalDetails");
   };
   const goToNextPage = () => {
     const validationErrors = validateForm(user);
 
-    // Set errors if validation fails
     setErrors(validationErrors);
 
-    // If there are no validation errors, move to next page
     if (Object.keys(validationErrors).length === 0) {
-      router.push("/preferences"); // This will navigate to /about/page.tsx
+      router.push("/preferences");
     }
   };
   return (

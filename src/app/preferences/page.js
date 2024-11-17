@@ -5,13 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import ProgressSteps from "../components/progressSteps";
 
-
 const PreferencesPage = () => {
   const router = useRouter();
 
-  const user = useSelector((state) => state.user); // Access Redux state
-  console.log("here", user);
-  const [errors, setErrors] = useState({}); // Store errors locally
+  const user = useSelector((state) => state.user);
+  const [errors, setErrors] = useState({});
   const validateForm = (user) => {
     let errors = {};
 
@@ -22,20 +20,17 @@ const PreferencesPage = () => {
     return errors;
   };
   const handleClick = () => {
-    router.push("/accountDetails"); // This will navigate to /about/page.tsx
+    router.push("/accountDetails");
   };
 
   const submit = () => {
     const validationErrors = validateForm(user);
 
-    // Set errors if validation fails
     setErrors(validationErrors);
 
-    // If there are no validation errors, move to next page
     if (Object.keys(validationErrors).length === 0) {
-
       router.push("/review");
-    } // This will navigate to /about/page.tsx
+    }
   };
   const steps = [
     { id: 1, name: "Step 1", description: "Personal Details" },

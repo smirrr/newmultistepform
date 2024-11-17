@@ -1,30 +1,28 @@
 // src/store/userSlice.js
-'use client'
-import { createSlice } from '@reduxjs/toolkit';
+"use client";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  address: '',
-  city: '',
-  state: '',
-  zipcode: '',
-  username: '',
-  password: '',
-  confirmPassword: '',
+  firstName: "",
+  lastName: "",
+  email: "",
+  address: "",
+  city: "",
+  state: "",
+  zipcode: "",
+  username: "",
+  password: "",
+  confirmPassword: "",
   emailNotifications: false,
   pushNotifications: false,
   agreeToTerms: false,
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
-    // The setUser action will now update all fields
     setUser(state, action) {
-      // Each field is updated based on the action payload
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
@@ -38,19 +36,18 @@ const userSlice = createSlice({
       state.emailNotifications = action.payload.emailNotifications;
       state.pushNotifications = action.payload.pushNotifications;
       state.agreeToTerms = action.payload.agreeToTerms;
-
     },
     clearUser(state) {
-      state.firstName = '';
-      state.lastName = '';
-      state.email = '';
-      state.address = '';
-      state.city = '';
-      state.state = '';
-      state.zipcode = '';
-      state.username = '';
-      state.password = '';
-      state.confirmPassword = '';
+      state.firstName = "";
+      state.lastName = "";
+      state.email = "";
+      state.address = "";
+      state.city = "";
+      state.state = "";
+      state.zipcode = "";
+      state.username = "";
+      state.password = "";
+      state.confirmPassword = "";
       state.emailNotifications = false;
       state.pushNotifications = false;
       state.agreeToTerms = false;

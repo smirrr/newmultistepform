@@ -1,21 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setUser } from "./store/userSlice"; // Import the action
+import { setUser } from "./store/userSlice";
 
 const MultiStepForm = ({ currentStep, errors }) => {
-  //   console.log("here", currentStep, currentStep == 1);
   const dispatch = useDispatch();
 
-  // Access the Redux state
   const user = useSelector((state) => state.user);
 
-  // Handle form input change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Dispatch setUser to update the Redux store
     dispatch(setUser({ ...user, [name]: value }));
   };
-  console.log("here", user);
 
   return (
     <div className="border border-solid border-[#90EE90] mt-10 mr-10 p-10  rounded-lg w-[90%] h-[35rem]">
@@ -32,10 +27,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                 </p>
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-4">
-                    <label
-                      //   for="username"
-                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
-                    >
+                    <label className="block text-sm/6 font-medium font-sans text-[#00008B]">
                       Username
                     </label>
                     <div className="mt-2">
@@ -46,7 +38,6 @@ const MultiStepForm = ({ currentStep, errors }) => {
                           id="username"
                           value={user.username}
                           onChange={handleChange}
-                          //   autocomplete="username"
                           className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                           placeholder="janesmith"
                         />
@@ -54,10 +45,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                     </div>
                   </div>
                   <div className="sm:col-span-4">
-                    <label
-                      //   for="password"
-                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
-                    >
+                    <label className="block text-sm/6 font-medium font-sans text-[#00008B]">
                       Password
                     </label>
                     <div className="mt-2 relative">
@@ -67,7 +55,6 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         id="password"
                         value={user.password}
                         onChange={handleChange}
-                        //   autocomplete="new-password"
                         className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                         placeholder="********"
                       />
@@ -86,10 +73,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                     </div>
                   </div>
                   <div className="sm:col-span-4">
-                    <label
-                      //   for="confirm-password"
-                      className="block text-sm/6 font-medium font-sans text-[#00008B]"
-                    >
+                    <label className="block text-sm/6 font-medium font-sans text-[#00008B]">
                       Confirm Password
                     </label>
                     <div className="mt-2 relative">
@@ -99,7 +83,6 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         id="confirmPassword"
                         value={user.confirmPassword}
                         onChange={handleChange}
-                        //   autocomplete="new-password"
                         className="block w-full font-sans rounded-md border-0 py-1.5 text-sm text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#00008b] "
                         placeholder="********"
                       />
