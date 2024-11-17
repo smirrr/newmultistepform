@@ -107,7 +107,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
               </div>
             )}
             {currentStep == 1 && (
-              <div className="mt-10 mx-40 p-10 border border-solid border-[#90EE90] rounded-lg w-[70%]">
+              <div className="mt-10 mx-10 p-10 border border-solid border-[#90EE90] rounded-lg">
                 <h2 className="font-sans text-[#00008B] font-bold text-lg">
                   Personal Details
                 </h2>

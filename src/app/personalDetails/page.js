@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import MultiStepForm from "../form";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import ProgressSteps from "../components/progressSteps";
 
 const PersonaldetailsPage = () => {
   const router = useRouter();
@@ -50,12 +51,17 @@ const PersonaldetailsPage = () => {
   };
 
   return (
-    <div>
+    <div className="flex fex-row gap-10">
+        <div className="w-[25%]">
+            <ProgressSteps/>
+        </div>
+        <div className="w-[75%]">
       <MultiStepForm currentStep={1} errors={errors} />
-      <div className="fixed bottom-0 left-0 w-full h-28 flex flex-row justify-center items-center">
+      <div className="fixed bottom-0 left-0  h-28 flex flex-row justify-center items-center">
         <button className='bg-[#90ee90] text-white font-medium font-sans px-4 py-2 rounded-[5cm] hover:bg-white border border-transparent hover:border-[#90ee90] hover:text-[#90ee90]  h-12 w-40 flex justify-center items-center'  onClick={handleClick} >
           Next
         </button>
+      </div>
       </div>
     </div>
   );
