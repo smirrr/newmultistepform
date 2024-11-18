@@ -64,7 +64,7 @@ const MultiStepForm = ({ currentStep, errors }) => {
                         </p>
                       )}
                       {/* Password Guidelines */}
-                      <ul className="mt-2 text-xs text-gray-500 list-disc pl-5">
+                      <ul className="mt-[1.5rem] text-xs text-gray-500 list-disc pl-5">
                         <li>Password should be at least 6 characters long.</li>
                         <li>
                           Password must contain both alphabets and numbers.
